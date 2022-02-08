@@ -1,10 +1,15 @@
 <template>
   <div class="sidebar">
     <img class="logo" alt="logo" src="../assets/logo-full.png" />
+    <!-- Профиль, нужно будет сделать скрытие если токена нет  -->
     <div class="profil">
       <p>No profile</p>
     </div>
     <img class="men" src="../assets/premium-icon-vitruvian-man-3071121.png" alt="" />
+    <button class="create">
+      <img src="../assets/plus.svg" />
+      Create Profile
+    </button>
   </div>
 </template>
 
@@ -24,7 +29,7 @@ export default {
   display: flex
   flex-direction: column
   background: linear-gradient(180deg, rgba(0, 0, 0, .60), rgba(37, 47, 29, .85), rgba(81, 105, 51, .60))
-  width: 20%
+  width: 18%
   height: 100vh
 .logo
   margin-left: 30%
@@ -34,8 +39,8 @@ export default {
 .profil
   background: rgba(13, 13, 13, 0.65)
   margin-top: 7%
-  margin-left: 25%
-  width: 50%
+  margin-left: 27%
+  width: 45%
   border: 1px solid rgba(255, 255, 255, 0.67)
   border-right: 0px
   border-top-left-radius: 15px
@@ -45,12 +50,21 @@ export default {
     text-align: center
     font-size: 25px
     font-family: 'Roboto', sans-serif
-    padding: 10%
+    padding: 6%
     margin: 0
 
 .men
-  margin-left: 35%
+  margin-left: 37%
   margin-top: 8%
   height: 10%
   width: 30%
+
+.create
+  margin-left: 25%
+  margin-top: 7%
+  width: 50%
+  height: 5%
+  vertical-align: middle
+  img
+    border: 1px solid
 </style>
