@@ -2,6 +2,7 @@
   <div class="sidebar">
     <img class="logo" alt="logo" src="../assets/logo-full.png" />
     <!-- Профиль, нужно будет сделать скрытие если токена нет  -->
+    <img src="../assets/back.svg" />
     <div class="profil">
       <p>No profile</p>
     </div>
