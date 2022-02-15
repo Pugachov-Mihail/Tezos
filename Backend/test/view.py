@@ -13,13 +13,3 @@ a = user.insert().values(
 )
 write(a)
 us = read(user)
-data = User(data=us)
-print(data)
-
-app = FastAPI()
-
-@app.get("/")
-def index():
-    b = data
-    print('-------------------', b)
-    return {"json": b }
