@@ -11,33 +11,59 @@ class Token:
         self.token = token
 
     def get_account(self):
-        account = requests.get("https://api.tzkt.io/v1/accounts/{0}".format(self.token))
-        token = account.json()
+        account = requests.get("https://api.tzkt.io/v1/accounts/{0}".format(self.token)).json()
+        token = account
         if "address" in token:
-            if token["address"] != '':
-                return token["address"]
+            #if token["address"] != '':
+            return token["address"], account
         else:
             print("Неверный токен")
             return 0
 
     def get_balance_account(self):
-        balance = requests.get("https://api.tzkt.io/v1/tokens/balances?accounts={0}=50&balance.gt=0".format(self.get_account())).json()
-        a = str(balance[0])
-        for i in a.split(","):
-            print(i)
         if self.get_account() != 0:
-            return balance[0]["balance"]
+            balance = self.get_account()[1]
+            print(balance["balance"])
+            return balance["balance"]
         else:
             return 0
 
 
-app = requests.get("https://api.tzkt.io/v1/accounts").text
+       #a = str(balance[0])
+        #for i in a.split(","):
+         #   print(i)
+
+
+a = Token('tz1Ke2h7sDdakHJQh8WX4Z372du1KChsksyU')
+a.get_account()
+a.get_balance_account()
+
+'''app = requests.get("https://api.tzkt.io/v1/accounts").text
 for i in app.split(","):
     print(i)
 
 apps = requests.get("https://api.tzkt.io/v1/accounts/tz1hgkiVecL3zzsfxwZf43KRrvrTbVZtPerM/operations").text
-
 '''
-a = Token('tz1bPmDANudr2SjSyg6MY5kBsdSMY3Xiirat')
-a.get_account()
-a.get_balance_account()'''
+
+
+"""{"type":"user"
+"address":"tz1Ke2h7sDdakHJQh8WX4Z372du1KChsksyU"
+"alias":"Null-address"
+"revealed":false
+"balance":27931970860
+"counter":20716301
+"numContracts":34
+"activeTokensCount":26
+"tokenBalancesCount":26
+"tokenTransfersCount":40
+"numActivations":0
+"numDelegations":0
+"numOriginations":0
+"numTransactions":29425
+"numReveals":0
+"numRegisterConstants":0
+"numMigrations":0
+"firstActivity":1
+"firstActivityTime":"2018-06-30T17:39:57Z"
+"lastActivity":2123460
+"lastActivityTime":"2022-02-16T19:32:00Z"}"""
