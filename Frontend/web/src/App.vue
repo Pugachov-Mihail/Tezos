@@ -1,29 +1,28 @@
 <template>
-  <div id="nav">
-    <router-view />
-  </div>
-  <div>
-    <img class="left" src="../src/assets/line_left.svg" alt="" />
-    <img class="right" src="../src/assets/line_right.svg" />
-  </div>
+  <top-bar />
+  <left-bar1 />
+  <right-bar />
+  <router-view :to="token"> </router-view>
 </template>
 
-<style lang="sass">
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap')
-//font-family: 'Roboto', sans-serif
-body
-  margin: 0
-  padding: 0
-  background: rgba(17, 21, 24, 1)
+<script>
+import LeftBar1 from "@/components/LeftBar.vue";
+import RightBar from "@/components/RightBar.vue";
+import TopBar from "@/components/TopBar.vue";
 
-.left
-  z-index: -1
-  position: absolute
-  top: 10%
-  width: 100%
-.right
-  width: 100%
-  z-index: -1
-  position: absolute
-  top: 40%
-</style>
+export default {
+  name: "Home",
+  data() {
+    return {
+      token: true,
+    };
+  },
+  components: {
+    LeftBar1,
+    RightBar,
+    TopBar,
+  },
+};
+</script>
+
+<style lang="sass"></style>

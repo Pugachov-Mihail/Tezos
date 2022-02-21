@@ -1,22 +1,15 @@
 <template>
-  <div class="home">
-    <sidebar />
+  <div class="main-content">
+    <MainBar></MainBar>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import Sidebar from "@/components/Sidebar.vue";
+import MainBar from "@/components/MainBar.vue";
 
 export default {
-  name: "Home",
-  data(){
-    return {
-      see: true
-    }
-  },
-  components: {
-    Sidebar,
-  },
+  components: { MainBar },
 };
 </script>
+
+<style lang="sass"></style>

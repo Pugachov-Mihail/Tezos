@@ -10,20 +10,22 @@ class Token:
     def __init__(self, token):
         self.token = token
 
-    def get_account(self):
+    def get_token(self):
         account = requests.get("https://api.tzkt.io/v1/accounts/{0}".format(self.token)).json()
-        token = account
+        return account
+
+    def get_account(self ):
+        token = self.get_token()
         if "address" in token:
             #if token["address"] != '':
-            return token["address"], account
+            return token["address"]
         else:
             print("Неверный токен")
             return 0
 
     def get_balance_account(self):
-        if self.get_account() != 0:
-            balance = self.get_account()[1]
-            print(balance["balance"])
+        if self.get_token() != 0:
+            balance = self.get_token()
             return balance["balance"]
         else:
             return 0
@@ -34,9 +36,11 @@ class Token:
          #   print(i)
 
 
-a = Token('tz1Ke2h7sDdakHJQh8WX4Z372du1KChsksyU')
+'''a = Token('tz1Td6zHZHrMRGvaZNTvBDsKrnGA2GrG647m')
+a.get_account()
 a.get_account()
 a.get_balance_account()
+'''
 
 '''app = requests.get("https://api.tzkt.io/v1/accounts").text
 for i in app.split(","):
